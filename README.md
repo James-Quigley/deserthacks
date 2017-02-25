@@ -1,3 +1,4 @@
-# deserthacks
+# Slacker
 
-woooooooo
+Keep up with your slack with minimal effort.
+
