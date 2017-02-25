@@ -4,19 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var passport = require('passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-const {
-    CLIENT_ID,
-    CLIENT_SECRET,
-    PORT
-} = process.env,
-    SlackStrategy = require('passport-slack').Strategy,
-    passport = require('passport');
+const CLIENT_ID = '133991819252.147191251975';
+const CLIENT_SECRET = 'b962657d72645d60f05e016523dcdbec';
+var SlackStrategy = require('passport-slack').Strategy,
+    passport = require('passport'),
+    express = require('express'),
+    app = express();
 
 // setup the strategy using defaults
 passport.use(new SlackStrategy({
@@ -26,7 +25,20 @@ passport.use(new SlackStrategy({
     // optionally persist profile data
     done(null, profile);
 }));
+
 app.use(passport.initialize());
+
+// path to start the OAuth flow
+app.get('/auth/slack', passport.authorize('slack'));
+
+// OAuth callback url
+app.get('/auth/slack/callback',
+    passport.authorize('slack', {
+        failureRedirect: '/login'
+    }),
+    (req, res) => res.redirect('/')
+);
+
 app.use(require('body-parser').urlencoded({
     extended: true
 }));
@@ -41,6 +53,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
@@ -63,15 +77,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-// path to start the OAuth flow
-app.get('/auth/slack', passport.authorize('slack'));
-
-// OAuth callback url
-app.get('/auth/slack/callback',
-    passport.authorize('slack', {
-        failureRedirect: '/login'
-    }),
-    (req, res) => res.redirect('/')
-);
-
 module.exports = app;
+app;
+
+app;
