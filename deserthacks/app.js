@@ -16,9 +16,7 @@ const {
     PORT
 } = process.env,
     SlackStrategy = require('passport-slack').Strategy,
-    passport = require('passport'),
-    express = require('express'),
-    app = express();
+    passport = require('passport');
 
 // setup the strategy using defaults
 passport.use(new SlackStrategy({
