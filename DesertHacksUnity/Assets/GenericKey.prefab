@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listenKey: 0
-  keyObject: {fileID: 0}
+  keyObject: {fileID: 54550455093414198}
   rotationTransform: 0
   speed: 3

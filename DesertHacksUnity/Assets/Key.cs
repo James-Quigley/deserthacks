@@ -18,7 +18,7 @@ public class Key : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		rb.velocity = new Vector3 (0.0f, 0.0f, -3.0f);
+		rb.velocity = new Vector3 (0.0f, 0.0f, -0.5f);
 	}
 	
 	// Update is called once per fixed period of time
@@ -29,7 +29,11 @@ public class Key : MonoBehaviour {
 	}
 	void spawn(){
 	}
-	public void setListenKey(char letter){
+	public void setLetter(char letter){
 		listenKey = letter;
 	}
+    public char getLetter()
+    {
+        return listenKey;
+    }
 }

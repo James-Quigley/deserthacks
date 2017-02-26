@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ExampleClass : MonoBehaviour
 {
-    public string url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+    public string url = "52.41.27.101:443";
     IEnumerator Start()
     {
         WWW www = new WWW(url);
