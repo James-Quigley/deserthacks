@@ -15,15 +15,31 @@ export class PhrasesController extends BaseController {
         this.router.get('/', (req, res) => {
             this.get(req, res);
         });
+        this.router.get('/delete', (req, res) => {
+            this.getAndDelete(req, res);
+        });
         this.router.post('/', (req, res) => {
             this.post(req, res);
-        });
-        this.router.delete('/', (req, res) => {
-            this.deleteAll(req, res);
         });
     }
 
     async get(req, res) {
+        try {
+            let result = await this._repository.listPhrases();
+            res.json(new JsonResponse({
+                success: true,
+                message: "Searched correctly",
+                data: result
+            }));
+        } catch (ex) {
+            res.json(new JsonResponse({
+                success: false,
+                message: ex.message
+            }));
+        }
+    }
+
+    async getAndDelete(req, res) {
         try {
             let result = await this._repository.listPhrases();
             await this._repository.delete();
@@ -43,17 +59,6 @@ export class PhrasesController extends BaseController {
     async post(req, res) {
         try {
             res.json(new JsonResponse(await this._repository.insert(req.body)));
-        } catch (ex) {
-            res.json(new JsonResponse({
-                success: false,
-                message: ex.message
-            }));
-        }
-    }
-
-    async deleteAll(req, res) {
-        try {
-            res.json(new JsonResponse(await this._repository.delete()));
         } catch (ex) {
             res.json(new JsonResponse({
                 success: false,
