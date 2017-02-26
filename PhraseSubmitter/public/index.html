@@ -4,11 +4,11 @@
   <link rel="stylesheet" type="text/css" href="/materializecss">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/css">
+  <link rel="stylesheet" type="text/css" href="./main.css">
 
 </head>
 
 <body>
-  <div id="Hello">
 
   <!-- Navigation bar -->
   <nav>
@@ -19,24 +19,24 @@
     </div>
   </nav>
 
+<form id="main" action="52.41.27.101:443/phrases" method="post">
+
   <!-- Text field -->
   <div class="row">
-    <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea" data-length="80"></textarea>
+          <textarea id="textarea1" class="materialize-textarea" data-length="20"></textarea>
           <label for="textarea1">Textarea</label>
         </div>
       </div>
-    </form>
   </div>
 
-  <!-- Button -->
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  <!-- Submit Button -->
+  <button class="btn waves-effect waves-light right" id="submitButton" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
 
-</div>
+</form>
   <!-- SCRIPTS -->
   <script src="/jquery"></script>
   <script src="/materializejs"></script>
