@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{EB863F87-C990-FAB9-302B-734130F497BB}") = "DesertHacks", "Assembly-CSharp.csproj", "{5F2971C9-6F41-98F6-D79F-4A54BB4B85EA}"
+EndProject
+Project("{EB863F87-C990-FAB9-302B-734130F497BB}") = "DesertHacks", "Assembly-CSharp-Editor.csproj", "{A9F19392-7139-D2D9-7B69-8AE640EF9B1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F2971C9-6F41-98F6-D79F-4A54BB4B85EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2971C9-6F41-98F6-D79F-4A54BB4B85EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2971C9-6F41-98F6-D79F-4A54BB4B85EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2971C9-6F41-98F6-D79F-4A54BB4B85EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9F19392-7139-D2D9-7B69-8AE640EF9B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F19392-7139-D2D9-7B69-8AE640EF9B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F19392-7139-D2D9-7B69-8AE640EF9B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F19392-7139-D2D9-7B69-8AE640EF9B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
