@@ -1,4 +1,4 @@
 export let ServerConfig = {
-    port: 80,
+    port: 443,
     startupMessage: "Starting server!"
 }
