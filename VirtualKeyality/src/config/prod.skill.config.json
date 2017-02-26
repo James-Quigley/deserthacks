@@ -1,0 +1,12 @@
+{
+    "skillNamespace": "DesertHacks",
+    "skillAppID": "REPLACE WITH prod appID",
+    "dynamoDBTableName": "DesertHacks-users",
+    "s3": {
+        "bucketName": "DesertHacks",
+        "transKey": "translations.json"
+    },
+    "region": "us-east-1",
+    "awsProfile": "DesertHacks-profile-prod",
+    "trackingToken": "REPLACE WITH ANALYTICS TRACKING TOKEN"
+}

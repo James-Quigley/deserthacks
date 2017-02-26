@@ -1,0 +1,68 @@
+service: ${self:custom.skillNamespace}-service
+
+frameworkVersion: ">=1.4.0 <2.0.0"
+
+package:
+  exclude:
+    - npm-scripts/**
+    - s3-cors.json
+    - config/dev.skill.config.json
+    - config/prod.skill.config.json    
+    # remove node modules only needed for npm scripts
+    - node_modules/attrs.argv/**
+    - node_modules/cp/**
+    - node_modules/npm-run-script/**
+    - node_modules/prompt/**
+    - node_modules/mocha/**
+    - node_modules/urldecode/**
+    - node_modules/opn/**
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  region: us-east-1
+  stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+  memorySize: 128
+
+custom:
+  skillNamespace: DesertHacks
+  defaultStage: dev
+  profiles:
+    dev: ${self:custom.skillNamespace}-profile-dev
+    prod: ${self:custom.skillNamespace}-profile-prod
+
+functions:
+  skill:
+    handler: main.handler
+    role:
+      'Fn::GetAtt': [ lambdaRole, Arn ]
+    events:
+      - alexaSkill 
+
+resources:
+  Resources:
+    lambdaRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: ${self:service}-${self:provider.stage}-${self:provider.region}-lambdaRole
+        Path: "/"
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: ${self:service}-${self:provider.stage}-lambdaPolicy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: 'Allow'
+                  Action:
+                    - 'logs:CreateLogGroup'
+                    - 'logs:CreateLogStream'
+                    - 'logs:PutLogEvents'
+                  Resource: arn:aws:logs:${self:provider.region}:*:*
