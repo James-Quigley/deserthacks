@@ -37,13 +37,8 @@ class Server {
 
 
     async init() {
-        console.log("Hello");
         this._db = await new DBHelper().init();
-<<<<<<< HEAD
-        console.log("1");
-=======
-        this._app.use(express.static('public'))
->>>>>>> d24565879e92f4088b291e2ac26570d5392ea600
+        this._app.use(express.static('public'));
         this._app.use(cors());
         this.app.use(bodyParser.urlencoded({
             extended: false
