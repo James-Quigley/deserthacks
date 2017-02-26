@@ -17,7 +17,7 @@ export class Router {
     }
 
     init() {
-        //this.server.app.use('/', new HomeController(this.server).router);
+        this.server.app.use('/', new HomeController(this.server).router);
         this.server.app.use('/phrases', new PhrasesController(this.server).router);
     }
 }
