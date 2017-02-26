@@ -37,7 +37,9 @@ class Server {
 
 
     async init() {
+        console.log("Hello");
         this._db = await new DBHelper().init();
+        console.log("1");
         this._app.use(cors());
         this.app.use(bodyParser.urlencoded({
             extended: false
