@@ -58,6 +58,7 @@ export class PhrasesController extends BaseController {
 
     async post(req, res) {
         try {
+            console.log(req.body);
             res.json(new JsonResponse(await this._repository.insert(req.body)));
         } catch (ex) {
             res.json(new JsonResponse({
