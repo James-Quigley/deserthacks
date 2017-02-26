@@ -1,0 +1,13 @@
+{
+    "skillNamespace": "DesertHacks",
+    "skillAppID": "amzn1.ask.skill.3a1ac1e9-b48b-4c82-abc5-eb41f2c0289a",
+    "dynamoDBTableName": "DesertHacks-users-dev",
+    "s3": {
+        "bucketName": "DesertHacks-dev",
+        "transKey": "translations.json"
+    },
+    "region": "us-east-1",
+    "roleArn": "arn:aws:iam::579709515411:role/DesertHacks-service-dev-us-east-1-lambdaRole",
+    "awsProfile": "DesertHacks-profile-dev",
+    "trackingToken": "REPLACE WITH ANALYTICS TRACKING TOKEN"
+}
