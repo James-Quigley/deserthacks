@@ -38,6 +38,7 @@ class Server {
 
     async init() {
         this._db = await new DBHelper().init();
+        this._app.use(express.static('public'))
         this._app.use(cors());
         this.app.use(bodyParser.urlencoded({
             extended: false
