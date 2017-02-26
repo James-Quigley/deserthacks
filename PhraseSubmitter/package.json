@@ -1,5 +1,5 @@
 {
-  "name": "memoranda-server",
+  "name": "PhraseSubmitter",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
