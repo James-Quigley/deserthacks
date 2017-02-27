@@ -13,6 +13,7 @@ public class KeySpawner : MonoBehaviour {
     public Rigidbody player;
     public List<GameObject> pressedKey;
     float timeDelt;
+    public float interval;
 
 	Dictionary<char, GameObject> dict;
 		
@@ -37,7 +38,7 @@ public class KeySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timeDelt = timeDelt + Time.deltaTime;
-        if(timeDelt > .8)
+        if(timeDelt > interval)
         {
             pressedKey.Add(spawnKey((char)((int)Random.Range(65, 90))));
             timeDelt = 0;
