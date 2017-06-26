@@ -6,3 +6,5 @@ The Virtual Reality game that nobody asked for. Don the headset, hands on the ho
 
 Launch unity in the DesertHacksUnity folder, open the correct scene, and hit play.
 
+NOTE: This project was worked on several months ago. As of June 25, 2017, it does not work with the current version of SteamVR due to API changes. 
+
